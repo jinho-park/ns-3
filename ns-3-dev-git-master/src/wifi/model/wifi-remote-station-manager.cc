@@ -2215,12 +2215,6 @@ WifiRemoteStationManager::GetVhtSupported (Mac48Address address) const
   return LookupState (address)->m_vhtSupported;
 }
 
-bool
-WifiRemoteStationManager::GetHeSupported (Mac48Address address) const
-{
-  return LookupState (address)->m_heSupported;
-}
-
 void
 WifiRemoteStationManager::SetDefaultTxPowerLevel (uint8_t txPower)
 {

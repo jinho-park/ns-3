@@ -608,7 +608,7 @@ TracedCallbackTypedefTestCase::DoRun (void)
          empty, empty);
 
   CHECK (SpectrumChannel::LossTracedCallback,
-         Ptr<const SpectrumPhy>, Ptr<const SpectrumPhy>, double,
+         Ptr<SpectrumPhy>, Ptr<SpectrumPhy>, double,
          empty, empty);
 
   CHECK (SpectrumValue::TracedCallback,

@@ -1,7 +1,6 @@
 /* -*-  Mode: C++; c-file-style: "gnu"; indent-tabs-mode:nil; -*- */
 /*
  * Copyright (c) 2015 Danilo Abrignani
- * Copyright (c) 2018, University of Padova, Dep. of Information Engineering, SIGNET lab.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 as
@@ -18,8 +17,6 @@
  *
  * Author: Danilo Abrignani <danilo.abrignani@unibo.it>
  *
- * Modified by: Tommaso Zugno <tommasozugno@gmail.com>
- *								 Integration of Carrier Aggregation for the mmWave module
  */
 
 #ifndef LTE_ENB_COMPONENT_CARRIER_MANAGER_H
@@ -111,7 +108,7 @@ public:
    * received, or to notify CCM about PRB occupancy, and similar. Functions that are
    * specific for the communication between MAC and CCM.
    *
-   * \returns LteCcmMacSapUser*
+   * \returns LteCcmMacSapUser* 
    */
   virtual LteCcmMacSapUser* GetLteCcmMacSapUser ();
 
@@ -123,7 +120,7 @@ public:
    * component carriers based on the logic implemented in the
    * specific component carrier manager.
    *
-   * \returns LteMacSapProvider*
+   * \returns LteMacSapProvider* 
    */
   virtual LteMacSapProvider* GetLteMacSapProvider ();
 
@@ -159,8 +156,6 @@ public:
    * \param rrc the RRC
    */
   virtual void SetRrc (const Ptr<LteEnbRrc> rrc);
-
-  virtual void SetBandwidthMap (std::map<uint8_t, double> bandwidthMap);
 
 protected:
 
@@ -212,7 +207,6 @@ protected:
   LteCcmRrcSapUser* m_ccmRrcSapUser; //!< A pointer to SAP interface of RRC instance, i.e. to configure measurements reporting for CCM.
   LteCcmRrcSapProvider* m_ccmRrcSapProvider; //!< A pointer to the SAP interface of the CCM instance to receive API calls from the eNodeB RRC instance.
 
-  std::map<uint8_t, double> m_bandwidthMap;
 }; // end of class LteEnbComponentCarrierManager
 
 

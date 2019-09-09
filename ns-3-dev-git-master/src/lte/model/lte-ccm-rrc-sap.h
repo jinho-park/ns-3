@@ -131,7 +131,6 @@ public:
 
   /**
    * \brief Add the Signal Bearer for a specific Ue in LteEnbComponenCarrierManager
-   * \brief Add the Signal Bearer for a specific Ue in LteEnbComponenCarrierManager
    * \param lcInfo this structure it is hard-coded in the LteEnbRrc
    * \param rlcMacSapUser it is the MacSapUser of the Rlc istance
    * \return the LteMacSapUser of the ComponentCarrierManager

@@ -955,11 +955,7 @@ TestRunnerImpl::Run (int argc, char *argv[])
           fullness = arg + strlen("--fullness=");
 
           // Set the maximum test length allowed.
-          if (fullness == "QUICK")
-            {
-              maximumTestDuration = TestCase::QUICK;
-            }
-          else if (fullness == "EXTENSIVE")
+          if (fullness == "EXTENSIVE")
             {
               maximumTestDuration = TestCase::EXTENSIVE;
             }
@@ -969,9 +965,7 @@ TestRunnerImpl::Run (int argc, char *argv[])
             }
           else
             {
-              // Wrong fullness option
-              PrintHelp (progname);
-              return 3;
+              maximumTestDuration = TestCase::QUICK;
             }
         }
       else

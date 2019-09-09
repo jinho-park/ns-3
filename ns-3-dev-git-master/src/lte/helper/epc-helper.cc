@@ -1,7 +1,6 @@
 /* -*-  Mode: C++; c-file-style: "gnu"; indent-tabs-mode:nil; -*- */
 /*
  * Copyright (c) 2011-2013 Centre Tecnologic de Telecomunicacions de Catalunya (CTTC)
- * Copyright (c) 2016, University of Padova, Dep. of Information Engineering, SIGNET lab
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 as
@@ -19,9 +18,6 @@
  * Author: Jaume Nin <jnin@cttc.es>
  *         Nicola Baldo <nbaldo@cttc.es>
  *         Manuel Requena <manuel.requena@cttc.es>
- *
- * Modified by: Michele Polese <michele.polese@gmail.com>
- *          Support for real S1AP link
  */
 
 #include <ns3/epc-helper.h>
@@ -37,7 +33,7 @@ NS_LOG_COMPONENT_DEFINE ("EpcHelper");
 NS_OBJECT_ENSURE_REGISTERED (EpcHelper);
 
 
-EpcHelper::EpcHelper ()
+EpcHelper::EpcHelper () 
 {
   NS_LOG_FUNCTION (this);
 }

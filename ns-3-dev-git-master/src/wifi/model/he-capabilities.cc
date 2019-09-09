@@ -93,13 +93,7 @@ HeCapabilities::HeCapabilities ()
 WifiInformationElementId
 HeCapabilities::ElementId () const
 {
-  return IE_EXTENSION;
-}
-
-WifiInformationElementId
-HeCapabilities::ElementIdExt () const
-{
-  return IE_EXT_HE_CAPABILITIES;
+  return IE_HE_CAPABILITIES;
 }
 
 void
@@ -113,7 +107,7 @@ HeCapabilities::GetInformationFieldSize () const
 {
   //we should not be here if ht is not supported
   NS_ASSERT (m_heSupported > 0);
-  return 19; //todo: variable length!
+  return 16; //todo: variable length!
 }
 
 Buffer::Iterator
@@ -146,9 +140,8 @@ HeCapabilities::SerializeInformationField (Buffer::Iterator start) const
       start.WriteU8 (GetHeMacCapabilitiesInfo2 ());
       start.WriteHtolsbU64 (GetHePhyCapabilitiesInfo1 ());
       start.WriteU8 (GetHePhyCapabilitiesInfo2 ());
-      start.WriteHtolsbU32 (GetSupportedMcsAndNss ());
-      //todo: add another 32-bits field if 160 MHz channel is supported (variable length)
-      //todo: optional PPE Threshold field (variable length)
+      start.WriteU16 (GetSupportedMcsAndNss ()); //todo: variable length
+      //todo: optional PPE Threshold field
     }
 }
 
@@ -160,12 +153,11 @@ HeCapabilities::DeserializeInformationField (Buffer::Iterator start, uint8_t len
   uint8_t macCapabilities2 = i.ReadU8 ();
   uint64_t phyCapabilities1 = i.ReadLsbtohU64 ();
   uint8_t phyCapabilities2 = i.ReadU8 ();
-  uint32_t mcsset = i.ReadU32 ();
+  uint16_t mcsset = i.ReadU16 (); //todo: variable length
   SetHeMacCapabilitiesInfo (macCapabilities1, macCapabilities2);
   SetHePhyCapabilitiesInfo (phyCapabilities1, phyCapabilities2);
   SetSupportedMcsAndNss (mcsset);
-  //todo: add another 32-bits field if 160 MHz channel is supported (variable length)
-  //todo: optional PPE Threshold field (variable length)
+  //todo: optional PPE Threshold field
   return length;
 }
 
